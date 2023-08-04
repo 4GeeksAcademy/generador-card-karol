@@ -1,11 +1,20 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+function getRandomValue() {
+  return Math.floor(Math.random() * 13) + 1;
+}
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function getRandomSuit() {
+  let suits = ['♥', '♦', '♠', '♣'];
+  let randomIndex = Math.floor(Math.random() * suits.length);
+  return suits[randomIndex];
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+function generateRandomCard() {
+  let randomValue = getRandomValue();
+  let randomSuit = getRandomSuit();
+
+  document.getElementById('center-value').innerText = randomValue;
+  document.getElementById('top-left').innerText = randomSuit;
+  document.getElementById('bottom-right').innerText = randomSuit;
+}
+
+window.onload = generateRandomCard;
